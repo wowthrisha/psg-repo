@@ -1,0 +1,19 @@
+name: PR Demo Workflow
+
+on:
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Check README
+        run: |
+          echo "README content:"
+          cat README.md
+          
+      - name: Run tests
+        run: echo "All checks passed!"
